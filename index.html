@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="https://github.com/Lusques">
+  <meta name="description" content="Gerador de senhas aleatórias">
+  <meta name="keywords" content="Gerador de senha">
+  <link rel="shortcut icon" href="image/cadeado.svg" type="image/svg">
+  <link rel="stylesheet" href="style/style.css">
+  <title>Gerador de senhas</title>
+</head>
+
+<body>
+  <div class="alertCopy">
+    <p id="alert-info">
+    </p>
+    </div>
+  <section id="all-container">
+    <input type="checkbox" class="none" id="choose-simbolos">
+    <input type="checkbox" class="none" id="choose-maiusculo">
+    <input type="checkbox" class="none" id="choose-minusculo">
+    <input type="checkbox" class="none" id="choose-numeros">
+    <div id="capa">
+      <p>
+        <!-- capa da página. -->
+      </p>
+    </div>
+    <header id="header">
+      <div class="logo">
+        <img src="image/logo.svg" alt="cadeado, logo da página">
+      </div>
+      <div class="menu"><img src="image/menu.svg" alt="menu de navegação"></div>
+    </header>
+    <section class="header--information--container">
+      <div class="header--information">
+        <div id="header--linha-vertical"></div>
+        <div class="header--information--text">
+          <p class="text">
+            Ferramenta para geração de senhas
+          </p>
+          <p class="text upper title">
+            Gere uma senha segura
+          </p>
+          <p class="text">
+            Use para criar senhas aleatórias
+          </p>
+        </div>
+      </div>
+      <div id="header--linha-horizontal"></div>
+      <div class="cpf">
+        <p class="text">Experimente também nosso analisador de <a href="#" class="upper">cpf</a>!</p>
+      </div>
+
+    </section>
+    <section class="settings--container">
+      <div class="password--area">
+        <div id="security"></div>
+        <div class="password--container">
+          <div class="password--information">
+            <textarea id="return--password" class="text title detach4"> A senha será escrita aqui</textarea>
+          </div>
+          <div class="password--icons">
+            <div class="icons--container">
+              <div class="icons--img-container" id="icons--img-container">
+                <div class="icons--img">
+                  <img src="image/weak.png" alt="">
+                </div>
+                <div class="icons--img">
+                  <img src="image/good.png" alt="">
+                </div>
+                <div class="icons--img">
+                  <img src="image/strong.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="password--buttons">
+              <img src="image/copy.svg" alt="copiar para área de transferência" onclick="copiar()">
+            </div>
+            <div class="password--buttons" onclick="geraSenha()">
+              <img src="image/replay.svg" alt="refazer as senhas">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="settings--area">
+        <div class="settings--picker-container">
+          <div class="settings--picker">
+            <h2 class="title">Personalize a sua senha</h2>
+            <p class="text">Quantidade de senhas geradas</p>
+            <div class="display-picker settings--picker-fc">
+              <div class="display-picker--button" onclick="opera('-')"></div>
+              <div class="display-picker--number">
+                <p id="nSenhas" class="title"></p>
+              </div>
+              <div class="display-picker--button" onclick="opera('+')"></div>
+            </div>
+            <input type="range" id="range-nSenhas" value="0" min="1" max="5" class="none">
+            <p class="text">Quantidade de caractéres</p>
+            <div class="display-picker">
+              <div class="display-picker--button" onclick="opera('-','char')"></div>
+              <div class="display-picker--number">
+                <p id="range-value" class="title"></p>
+              </div>
+              <div class="display-picker--button" onclick="opera('+','char')"></div>
+            </div>
+            <div class="display-picker">
+              <div class="display-picker--range">
+                <input type="range" id="range-bar" value="0" min="1" max="16" onchange="mostra(this.value, 'char')">
+              </div>
+            </div>
+            <a href="#return--password" class="display-picker--submit text subtitle" onclick="geraSenha()">
+              Gerar senha
+            </a>
+
+
+
+          </div>
+        </div>
+        <div class="settings--checkbox-container">
+        <div class="settings--checkbox">
+          <div class="settings--checkbox-input--container">
+            <div class="settings--checkbox-input">
+              <label for="choose-simbolos" class="choose-box">
+                <div class="choose-mark"></div>
+              </label>
+              <p>Caractéres especiais</p>
+            </div>
+            <div class="settings--checkbox-input">
+              <label for="choose-maiusculo" class="choose-box">
+                <div class="choose-mark"></div>
+              </label>
+              <p>Letra maiúscula</p>
+            </div>
+
+            <div class="settings--checkbox-input">
+              <label for="choose-minusculo" class="choose-box">
+                <div class="choose-mark"></div>
+              </label>
+              <p>Letra minúscula</p>
+            </div>
+
+            <div class="settings--checkbox-input">
+              <label for="choose-numeros" class="choose-box">
+                <div class="choose-mark"></div>
+              </label>
+              <p>Numerais</p>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+
+    </section>
+    <footer id="footer--container">
+      <div class="footer-email">
+        <p class="text detach2">email para contato</p>
+        <p class="text subtitle">lucascarlosjobs@gmail.com</p>
+      </div>
+      <div class="footer-image-container">
+        <div class="footer-image"><a target="_blank" href="https://www.linkedin.com/in/lucas-carlos-76aba0165/"><img src="image/linkedin.png" alt="link para o linkedin"></a></div>
+        <div class="footer-image"><a target="_blank" href="https://github.com/Lusques"><img src="image/github.png" alt="link para o github"></a></div>
+      </div>
+    </footer>
+
+    <script src="script/script.js"></script>
+  </section>
+</body>
